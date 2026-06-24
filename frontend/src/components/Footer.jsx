@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Logo from "@/components/Logo";
+import { Instagram, Linkedin } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -24,9 +25,16 @@ export default function Footer() {
           </nav>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-[var(--border)] flex flex-col md:flex-row justify-between gap-3 text-xs text-[var(--text-muted)]">
+        <div className="mt-10 pt-6 border-t border-[var(--border)] flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-[var(--text-muted)]">
           <div data-testid="footer-copyright">© 2026 WIBLY Studio. All rights reserved.</div>
-          <div>Crafted with care · Worldwide · Remote</div>
+          <div className="flex items-center gap-5">
+            <a href="https://www.instagram.com/wibly.in/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--text)] transition flex items-center gap-1.5" aria-label="Instagram">
+              <Instagram size={15} /> <span className="hidden sm:inline">Instagram</span>
+            </a>
+            <a href="https://www.linkedin.com/company/wibly-in/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--text)] transition flex items-center gap-1.5" aria-label="LinkedIn">
+              <Linkedin size={15} /> <span className="hidden sm:inline">LinkedIn</span>
+            </a>
+          </div>
         </div>
       </div>
     </footer>
