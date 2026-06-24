@@ -506,15 +506,15 @@ export default function Home() {
           <div className="md:col-span-5">
             <div className="card overflow-hidden">
               <div className="relative">
-                <img src="https://images.pexels.com/photos/7439759/pexels-photo-7439759.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=900" alt="Sam — founder of WIBLY" className="w-full h-[420px] object-cover" />
-                <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-black/60 backdrop-blur text-[11px] font-mono">Founder · SAM</div>
+                <img src="/sam.jpg" alt="Sam — founder of WIBLY" className="w-full h-[420px] object-cover" />
+                <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-black/60 backdrop-blur text-[11px] font-mono text-white">Founder · SAM</div>
                 <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/40 text-emerald-300 text-[11px] font-mono flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" /> Available
                 </div>
               </div>
               <div className="p-5">
                 <div className="text-xl font-semibold">Saksham</div>
-                <div className="text-sm text-[var(--text-muted)]">Founder · Web Engineer · Designer</div>
+                <div className="text-sm text-[var(--text-muted)] mt-1">Founder · Web Engineer · Designer</div>
               </div>
             </div>
           </div>
