@@ -506,7 +506,7 @@ export default function Home() {
           <div className="md:col-span-5">
             <div className="card overflow-hidden">
               <div className="relative">
-                <img src="/sam.jpg" alt="Sam — founder of WIBLY" className="w-full h-[420px] object-cover" />
+                <img src="/sam.jpg" alt="Sam — founder of WIBLY" className="w-full h-auto aspect-[4/5] object-cover object-top" />
                 <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-black/60 backdrop-blur text-[11px] font-mono text-white">Founder · SAM</div>
                 <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/40 text-emerald-300 text-[11px] font-mono flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" /> Available
