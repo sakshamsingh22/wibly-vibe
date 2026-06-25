@@ -1,8 +1,11 @@
 import LegalLayout from "@/components/LegalLayout";
+import SEO from "@/components/SEO";
 
 export default function Terms() {
   return (
-    <LegalLayout
+    <>
+      <SEO title="Terms & Conditions | WIBLY" description="Terms and conditions for engaging with WIBLY Studio for web design services." canonical="/terms" />
+      <LegalLayout
       eyebrow="Legal · Terms"
       title={<>Terms <span className="font-serif italic text-[var(--accent-soft)]">&amp; Conditions.</span></>}
       lastUpdated="January 1, 2026"
@@ -130,5 +133,6 @@ export default function Terms() {
         <strong>WIBLY Studio</strong> · <a href="mailto:wibly.in@gmail.com">wibly.in@gmail.com</a>
       </p>
     </LegalLayout>
+    </>
   );
 }

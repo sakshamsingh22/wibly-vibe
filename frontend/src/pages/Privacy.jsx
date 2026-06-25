@@ -1,9 +1,16 @@
 import LegalLayout from "@/components/LegalLayout";
+import SEO from "@/components/SEO";
 
 export default function Privacy() {
   return (
-    <LegalLayout
-      eyebrow="Legal · Privacy"
+    <>
+      <SEO 
+        title="Privacy Policy | WIBLY" 
+        description="Privacy policy and data handling practices for WIBLY Studio." 
+        canonical="/privacy" 
+      />
+      <LegalLayout
+        eyebrow="Legal · Privacy"
       title={<>Privacy <span className="font-serif italic text-[var(--accent-soft)]">Policy.</span></>}
       lastUpdated="January 1, 2026"
       testId="privacy-page"
@@ -102,5 +109,6 @@ export default function Privacy() {
         <strong>WIBLY Studio</strong> · <a href="mailto:wibly.in@gmail.com">wibly.in@gmail.com</a>
       </p>
     </LegalLayout>
+    </>
   );
 }

@@ -5,34 +5,35 @@ import "react-phone-number-input/style.css";
 import { ChevronDown, ChevronRight, ExternalLink, Target, Compass, ShoppingBag, ShieldCheck, ArrowRight, Plus, Minus } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
-const SERVICES = [
+export const SERVICES = [
   { idx: "01", tag: "Conversion", title: "Landing Pages", body: "One powerful page engineered to convert. Perfect for product launches, ad campaigns and lead generation.", Icon: Target },
   { idx: "02", tag: "Identity", title: "Business Sites", body: "A 5-page online HQ — sharp, structured, on-brand.", Icon: Compass },
   { idx: "03", tag: "Revenue", title: "E-Commerce", body: "Sell 24/7. Stores built to convert.", Icon: ShoppingBag },
   { idx: "04", tag: "Reliability", title: "Care & Maintenance", body: "Monthly retainers that keep your site fast, secure and current. Sleep at night while we handle the rest.", Icon: ShieldCheck },
 ];
 
-const PROCESS = [
+export const PROCESS = [
   { phase: "Phase 01", n: "01", title: "Discover", body: "We learn your goals, brand, audience — in a focused intake call." },
   { phase: "Phase 02", n: "02", title: "Design", body: "Custom direction crafted from scratch. No templates, ever." },
   { phase: "Phase 03", n: "03", title: "Refine", body: "Two rounds of revisions. Your input drives every detail." },
   { phase: "Phase 04", n: "04", title: "Launch", body: "Deploy. Train. Go live. We stand by post-launch." },
 ];
 
-const WORK = [
+export const WORK = [
   { tag: "Food & Beverage", title: "Bella's Bakery", body: "A warm, inviting site with online menu and integrated ordering for a beloved neighborhood bakery.", img: "https://images.pexels.com/photos/9514677/pexels-photo-9514677.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=900", chips: ["Custom CMS", "Online Ordering", "Local SEO"] },
   { tag: "Home Services", title: "FixRight Plumbing", body: "Trust-first service site with integrated booking form, service area mapping, and emergency call routing.", img: "https://images.pexels.com/photos/35819418/pexels-photo-35819418.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=900", chips: ["Booking", "Service Areas", "Reviews"] },
   { tag: "Health & Fitness", title: "Spark Fitness Studio", body: "Dynamic gym website with class scheduling, trainer profiles and frictionless membership signup.", img: "https://images.pexels.com/photos/19548561/pexels-photo-19548561.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=900", chips: ["Schedule", "Memberships", "Stripe"] },
 ];
 
-const PRICING = [
+export const PRICING = [
   { tier: "Launch", price: "$69", note: "For startups & local businesses needing a sharp first presence.", cta: "Get Started", features: ["1 Page Website", "Mobile Responsive", "Contact Form", "Basic SEO Setup", "Social Media Links", "3 Revisions", "3-Day Delivery"] },
   { tier: "Growth", price: "$129", popular: true, note: "Most popular — for growing businesses ready to compete.", cta: "Choose Growth", features: ["Up to 5 Pages", "Mobile Responsive", "Lead Forms", "SEO Foundations", "Speed Optimization", "Social Integration", "5 Revisions", "5-Day Delivery"] },
   { tier: "Scale", price: "$199", note: "For businesses ready to expand and scale online.", cta: "Scale My Business", features: ["Up to 8 Pages", "Mobile Responsive", "Blog Setup", "Advanced Forms", "Speed Optimization", "Priority Support", "Unlimited Revisions", "7-Day Delivery"] },
 ];
 
-const FAQ = [
+export const FAQ = [
   { q: "How long does it take to build my website?", a: "Most websites are delivered within 5–7 days. Rush delivery is available for urgent projects — just ask." },
   { q: "Do I need to provide anything?", a: "Just your goals, brand assets if you have them, and any reference sites you love. We'll handle the rest — including stock imagery and copy direction." },
   { q: "Will my website work on mobile?", a: "Yes. Every Wibly site is mobile-first by default, tested across iOS and Android, and optimised for thumb-friendly interactions." },
@@ -41,9 +42,9 @@ const FAQ = [
   { q: "Can you update my existing website?", a: "Absolutely. Our Care & Maintenance retainer covers updates, performance tuning, content edits, and security patches on a monthly basis." },
 ];
 
-const TICKER = ["100% Custom Built", "Lightning Fast", "Mobile First", "SEO Optimized", "Conversion Focused", "Transparent Pricing", "Direct With Founder", "You Own It All"];
+export const TICKER = ["100% Custom Built", "Lightning Fast", "Mobile First", "SEO Optimized", "Conversion Focused", "Transparent Pricing", "Direct With Founder", "You Own It All"];
 
-function Section({ id, eyebrow, num, title, intro, children }) {
+export function Section({ id, eyebrow, num, title, intro, children }) {
   return (
     <section id={id} className="relative py-24 md:py-32" data-testid={`section-${id}`}>
       <div className="max-w-[1200px] mx-auto px-6">
@@ -60,7 +61,7 @@ function Section({ id, eyebrow, num, title, intro, children }) {
   );
 }
 
-function HeroMockup() {
+export function HeroMockup() {
   return (
     <div className="relative w-full aspect-[5/4] hidden lg:block" data-testid="hero-mockup">
       {/* Browser 1 */}
@@ -163,7 +164,7 @@ function HeroMockup() {
   );
 }
 
-function FAQItem({ q, a, idx }) {
+export function FAQItem({ q, a, idx }) {
   const [open, setOpen] = useState(idx === 0);
   return (
     <div className="border-t border-[var(--border)]" data-testid={`faq-${idx}`}>
@@ -184,7 +185,7 @@ function FAQItem({ q, a, idx }) {
   );
 }
 
-function ContactForm() {
+export function ContactForm() {
   const [form, setForm] = useState({ name: "", email: "", phone: "", business: "", service: "", message: "" });
   const [phoneError, setPhoneError] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -310,13 +311,10 @@ function ContactForm() {
   );
 }
 
-export default function Home() {
-  return (
-    <div className="relative grain" data-testid="home-page">
-      <Navbar />
 
-      {/* HERO */}
-      <section className="relative pt-32 md:pt-40 pb-20 bg-noise" data-testid="hero">
+export function HeroSection() {
+  return (
+    <section className="relative pt-32 md:pt-40 pb-20 bg-noise" data-testid="hero">
         <div className="max-w-[1200px] mx-auto px-6 grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           <div>
             <div className="eyebrow flex items-center gap-2 mb-6 fade-up">
@@ -360,9 +358,12 @@ export default function Home() {
           <div className="mt-12 text-right eyebrow">Scroll to explore ↓</div>
         </div>
       </section>
+  );
+}
 
-      {/* PROBLEM */}
-      <Section id="problem" num="01" eyebrow="The problem"
+export function ProblemSection() {
+  return (
+    <Section id="problem" num="01" eyebrow="The problem"
         title={<>Is your website <span className="font-serif italic text-[var(--accent-soft)]">costing</span> you customers?</>}
         intro="Most small business websites quietly leak revenue every single day. Three reasons why.">
         <div className="grid md:grid-cols-3 gap-5">
@@ -385,9 +386,12 @@ export default function Home() {
           Every day without a great website is a day you're losing money.
         </p>
       </Section>
+  );
+}
 
-      {/* SERVICES */}
-      <Section id="services" num="02" eyebrow="Services"
+export function ServicesSection() {
+  return (
+    <Section id="services" num="02" eyebrow="Services"
         title={<>What we build <span className="font-serif italic text-[var(--accent-soft)]">for you.</span></>}
         intro="Four core offerings. Each one shaped around outcomes, not deliverables.">
         <div className="grid md:grid-cols-2 gap-5">
@@ -406,9 +410,12 @@ export default function Home() {
           ))}
         </div>
       </Section>
+  );
+}
 
-      {/* PROCESS */}
-      <Section id="process" num="03" eyebrow="The process"
+export function ProcessSection() {
+  return (
+    <Section id="process" num="03" eyebrow="The process"
         title={<>From idea to <span className="font-serif italic text-[var(--accent-soft)]">live website.</span></>}
         intro="A transparent four-step process designed to get you online fast — without sacrificing craft.">
         <div className="grid md:grid-cols-4 gap-4">
@@ -426,9 +433,12 @@ export default function Home() {
         </div>
         <p className="mt-10 text-sm text-[var(--text-muted)] font-mono">Average Launch Time · 5–7 Days</p>
       </Section>
+  );
+}
 
-      {/* WORK */}
-      <Section id="work" num="04" eyebrow="Selected work"
+export function WorkSection() {
+  return (
+    <Section id="work" num="04" eyebrow="Selected work"
         title={<>Recent <span className="font-serif italic text-[var(--accent-soft)]">concept projects.</span></>}
         intro="A curated look at design directions we've explored for small businesses across industries.">
         <div className="grid md:grid-cols-3 gap-5">
@@ -455,9 +465,12 @@ export default function Home() {
           ))}
         </div>
       </Section>
+  );
+}
 
-      {/* MARQUEE */}
-      <div className="relative py-8 border-y border-[var(--border)] overflow-hidden" data-testid="marquee">
+export function MarqueeSection() {
+  return (
+    <div className="relative py-8 border-y border-[var(--border)] overflow-hidden" data-testid="marquee">
         <div className="marquee-track">
           {[...TICKER, ...TICKER, ...TICKER].map((t, i) => (
             <span key={i} className="font-serif italic text-3xl md:text-4xl text-[var(--text)]/80">
@@ -466,9 +479,12 @@ export default function Home() {
           ))}
         </div>
       </div>
+  );
+}
 
-      {/* PRICING */}
-      <Section id="pricing" num="05" eyebrow="Investment"
+export function PricingSection() {
+  return (
+    <Section id="pricing" num="05" eyebrow="Investment"
         title={<>Simple, transparent <span className="font-serif italic text-[var(--accent-soft)]">pricing.</span></>}
         intro="No hidden fees. No surprises. Honest prices for serious craft.">
         <div className="grid md:grid-cols-3 gap-5">
@@ -498,9 +514,12 @@ export default function Home() {
           ))}
         </div>
       </Section>
+  );
+}
 
-      {/* ABOUT */}
-      <Section id="about" num="06" eyebrow="The studio"
+export function AboutSection() {
+  return (
+    <Section id="about" num="06" eyebrow="The studio"
         title={<>Built by <span className="font-serif italic text-[var(--accent-soft)]">Sam.</span></>}>
         <div className="grid md:grid-cols-12 gap-10 items-start">
           <div className="md:col-span-5">
@@ -532,9 +551,12 @@ export default function Home() {
           </div>
         </div>
       </Section>
+  );
+}
 
-      {/* FAQ */}
-      <Section id="faq" num="07" eyebrow="Questions"
+export function FAQSection() {
+  return (
+    <Section id="faq" num="07" eyebrow="Questions"
         title={<>Got questions? <span className="font-serif italic text-[var(--accent-soft)]">Good.</span></>}
         intro="The answers to everything you're wondering before we start.">
         <div className="max-w-3xl">
@@ -542,9 +564,12 @@ export default function Home() {
           <div className="border-t border-[var(--border)]" />
         </div>
       </Section>
+  );
+}
 
-      {/* CONTACT */}
-      <Section id="contact" num="08" eyebrow="Get in touch"
+export function ContactSection() {
+  return (
+    <Section id="contact" num="08" eyebrow="Get in touch"
         title={<>Let's build something <span className="font-serif italic text-[var(--accent-soft)]">great.</span></>}>
         <div className="grid md:grid-cols-12 gap-10">
           <div className="md:col-span-4 space-y-8">
@@ -568,8 +593,27 @@ export default function Home() {
           </div>
         </div>
       </Section>
+  );
+}
 
+
+export default function Home() {
+  return (
+    <div className="relative grain" data-testid="home-page">
+      <SEO title="WIBLY — Websites that grow businesses" description="We design and engineer premium websites that look world-class, load lightning fast, and convert visitors into customers." canonical="/" />
+      <Navbar />
+      <HeroSection />
+      <ProblemSection />
+      <ServicesSection />
+      <ProcessSection />
+      <WorkSection />
+      <MarqueeSection />
+      <PricingSection />
+      <AboutSection />
+      <FAQSection />
+      <ContactSection />
       <Footer />
     </div>
   );
 }
+
