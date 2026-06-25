@@ -1,12 +1,13 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
-export default function SEO({ title, description, canonical, schema }) {
+export default function SEO({ title, description, canonical, schema, image }) {
   const siteUrl = 'https://www.wibly.in';
   const fullCanonical = canonical ? `${siteUrl}${canonical}` : siteUrl;
 
-  const defaultDescription = 'WIBLY is a premium web design and development studio building websites that grow businesses.';
+  const defaultDescription = 'Premium websites built for modern businesses. Fast, responsive and designed to convert visitors into customers.';
   const finalDescription = description || defaultDescription;
+  const finalImage = image || `${siteUrl}/logo192.png`;
 
   // Default Organization & WebSite Schema present on all pages
   const baseSchema = {
@@ -79,6 +80,7 @@ export default function SEO({ title, description, canonical, schema }) {
       {/* Open Graph */}
       <meta property="og:title" content={title} />
       <meta property="og:description" content={finalDescription} />
+      <meta property="og:image" content={finalImage} />
       <meta property="og:url" content={fullCanonical} />
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content="WIBLY" />
@@ -87,6 +89,7 @@ export default function SEO({ title, description, canonical, schema }) {
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={finalDescription} />
+      <meta name="twitter:image" content={finalImage} />
 
       {/* JSON-LD Schema */}
       <script type="application/ld+json">

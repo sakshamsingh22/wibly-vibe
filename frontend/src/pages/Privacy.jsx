@@ -17,7 +17,7 @@ export default function Privacy() {
     >
       <p>
         This Privacy Policy explains how <strong>WIBLY Studio</strong> ("WIBLY", "we", "us", or "our") collects, uses, and protects information when you visit{" "}
-        <a href="https://wibly-animations.preview.emergentagent.com">wibly-animations.preview.emergentagent.com</a> (the "Site"), engage with our web design,
+        <a href="https://www.wibly.in">www.wibly.in</a> (the "Site"), engage with our web design,
         engineering, e-commerce, or maintenance services (the "Services"), or otherwise communicate with us. By using the Site or Services, you agree to this Policy.
       </p>
 

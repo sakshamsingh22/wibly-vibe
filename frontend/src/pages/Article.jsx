@@ -147,6 +147,7 @@ export default function Article() {
         description={article.metaDescription || article.excerpt}
         canonical={`/resources/${article.slug}`}
         schema={articleSchema}
+        image={article.image}
       />
       
       <motion.div 
