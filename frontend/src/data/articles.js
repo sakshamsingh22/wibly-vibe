@@ -4,7 +4,7 @@ export const AUTHORS = {
     name: "Saksham",
     title: "Founder & Web Developer at WIBLY",
     bio: "Saksham is the Founder of WIBLY, a modern web design agency focused on building high-converting websites for small businesses. He specializes in responsive web design, UI/UX, SEO fundamentals, performance optimization and creating premium digital experiences that help businesses grow online.",
-    image: "/founder.jpeg", 
+    image: "/sam.jpg", 
     socials: {
       linkedin: "https://www.linkedin.com/company/wibly-in/",
       instagram: "https://www.instagram.com/wibly.in/"
