@@ -77,17 +77,43 @@ export default function Navbar() {
 
         <nav className="hidden md:flex items-center gap-1" data-testid="nav-links">
           {NAV.map((n) => {
-            const id = n.href.split("#")[1];
-            const isActive = !isLegal && active === id;
+            const isHash = n.href.startsWith("/#");
+            const id = isHash ? n.href.split("#")[1] : "";
+            
+            let isActive = false;
+            if (!isLegal) {
+              if (isHash) {
+                isActive = active === id && location.pathname === "/";
+              } else {
+                isActive = location.pathname.startsWith(n.href);
+              }
+            }
+
+            const className = `px-3.5 py-1.5 text-sm rounded-full transition-all ${
+              isActive ? "bg-white text-black" : "text-[var(--text-muted)] hover:text-[var(--text)]"
+            }`;
+
+            if (!isHash) {
+              return (
+                <Link
+                  key={n.label}
+                  to={n.href}
+                  onClick={() => setOpen(false)}
+                  data-testid={`nav-${n.label.toLowerCase()}`}
+                  className={className}
+                >
+                  {n.label}
+                </Link>
+              );
+            }
+
             return (
               <a
                 key={n.label}
                 href={n.href}
                 onClick={() => handleNavClick(id)}
                 data-testid={`nav-${n.label.toLowerCase()}`}
-                className={`px-3.5 py-1.5 text-sm rounded-full transition-all ${
-                  isActive ? "bg-white text-black" : "text-[var(--text-muted)] hover:text-[var(--text)]"
-                }`}
+                className={className}
               >
                 {n.label}
               </a>
@@ -117,7 +143,35 @@ export default function Navbar() {
       {open && (
         <div className="md:hidden mt-2 rounded-2xl border border-[var(--border)] bg-[rgba(15,13,12,0.95)] backdrop-blur-xl p-4 flex flex-col gap-1" data-testid="mobile-menu">
           {NAV.map((n) => {
-            const id = n.href.split("#")[1];
+            const isHash = n.href.startsWith("/#");
+            const id = isHash ? n.href.split("#")[1] : "";
+            
+            let isActive = false;
+            if (!isLegal) {
+              if (isHash) {
+                isActive = active === id && location.pathname === "/";
+              } else {
+                isActive = location.pathname.startsWith(n.href);
+              }
+            }
+
+            const className = `px-3 py-2 text-sm transition-colors ${
+              isActive ? "text-white font-medium" : "text-[var(--text-muted)] hover:text-white"
+            }`;
+
+            if (!isHash) {
+              return (
+                <Link
+                  key={n.label}
+                  to={n.href}
+                  onClick={() => setOpen(false)}
+                  className={className}
+                >
+                  {n.label}
+                </Link>
+              );
+            }
+
             return (
               <a
                 key={n.label}
@@ -126,7 +180,7 @@ export default function Navbar() {
                   setOpen(false);
                   handleNavClick(id);
                 }}
-                className="px-3 py-2 text-sm text-[var(--text-muted)] hover:text-[var(--text)]"
+                className={className}
               >
                 {n.label}
               </a>
