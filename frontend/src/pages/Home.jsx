@@ -1,3 +1,4 @@
+import ResourcesSection from "@/components/sections/ResourcesSection";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import PhoneInput, { parsePhoneNumber, isValidPhoneNumber } from "react-phone-number-input";
@@ -610,6 +611,7 @@ export default function Home() {
       <MarqueeSection />
       <PricingSection />
       <AboutSection />
+      <ResourcesSection />
       <FAQSection />
       <ContactSection />
       <Footer />

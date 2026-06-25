@@ -12,6 +12,9 @@ import Portfolio from "@/pages/Portfolio";
 import Pricing from "@/pages/Pricing";
 import FAQ from "@/pages/FAQ";
 import Contact from "@/pages/Contact";
+import Resources from "@/pages/Resources";
+import Article from "@/pages/Article";
+import Author from "@/pages/Author";
 
 function ScrollManager() {
   const location = useLocation();
@@ -45,6 +48,9 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
+            <Route path="/resources" element={<Resources />} />
+            <Route path="/resources/:slug" element={<Article />} />
+            <Route path="/author/:id" element={<Author />} />
           </Routes>
         </BrowserRouter>
       </div>
