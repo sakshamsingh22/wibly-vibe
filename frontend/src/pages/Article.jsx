@@ -69,21 +69,30 @@ export default function Article() {
 
   useEffect(() => {
     if (!toc.length) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveHeading(entry.target.id);
-          }
-        });
-      },
-      { rootMargin: "-120px 0px -60% 0px" }
-    );
-    toc.forEach((heading) => {
-      const el = document.getElementById(heading.id);
-      if (el) observer.observe(el);
-    });
-    return () => observer.disconnect();
+    
+    const handleScrollSpy = () => {
+      const headingElements = toc.map(t => document.getElementById(t.id)).filter(Boolean);
+      if (!headingElements.length) return;
+
+      // The offset includes the 110px navbar + a small buffer
+      const offset = 140; 
+      
+      let currentActiveId = headingElements[0].id;
+      for (const el of headingElements) {
+        if (el.getBoundingClientRect().top <= offset) {
+          currentActiveId = el.id;
+        } else {
+          break;
+        }
+      }
+      
+      setActiveHeading(currentActiveId);
+    };
+
+    window.addEventListener("scroll", handleScrollSpy, { passive: true });
+    handleScrollSpy(); // Initial check
+    
+    return () => window.removeEventListener("scroll", handleScrollSpy);
   }, [toc]);
 
   useEffect(() => {
