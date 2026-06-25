@@ -20,7 +20,7 @@ export default function Navbar() {
   useEffect(() => {
     if (location.pathname !== "/") return;
     
-    const navIds = ["work", "services", "process", "pricing", "faq"];
+    const navIds = ["work", "services", "process", "pricing", "resources", "faq"];
     
     const handleScroll = () => {
       if (window.__isNavScrolling) return;
@@ -78,14 +78,17 @@ export default function Navbar() {
         <nav className="hidden md:flex items-center gap-1" data-testid="nav-links">
           {NAV.map((n) => {
             const isHash = n.href.startsWith("/#");
-            const id = isHash ? n.href.split("#")[1] : "";
+            // If it's a hash, extract the id. If it's a path like /resources, extract the path name (resources).
+            const id = isHash ? n.href.split("#")[1] : n.href.split("/")[1];
             
             let isActive = false;
             if (!isLegal) {
-              if (isHash) {
-                isActive = active === id && location.pathname === "/";
+              if (location.pathname === "/") {
+                // On the homepage, active state is driven entirely by the scroll spy (active state variable)
+                isActive = active === id;
               } else {
-                isActive = location.pathname.startsWith(n.href);
+                // On other pages, it's driven by the URL path matching the href
+                isActive = !isHash && location.pathname.startsWith(n.href);
               }
             }
 
@@ -144,14 +147,14 @@ export default function Navbar() {
         <div className="md:hidden mt-2 rounded-2xl border border-[var(--border)] bg-[rgba(15,13,12,0.95)] backdrop-blur-xl p-4 flex flex-col gap-1" data-testid="mobile-menu">
           {NAV.map((n) => {
             const isHash = n.href.startsWith("/#");
-            const id = isHash ? n.href.split("#")[1] : "";
+            const id = isHash ? n.href.split("#")[1] : n.href.split("/")[1];
             
             let isActive = false;
             if (!isLegal) {
-              if (isHash) {
-                isActive = active === id && location.pathname === "/";
+              if (location.pathname === "/") {
+                isActive = active === id;
               } else {
-                isActive = location.pathname.startsWith(n.href);
+                isActive = !isHash && location.pathname.startsWith(n.href);
               }
             }
 
