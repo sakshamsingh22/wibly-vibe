@@ -1,9 +1,9 @@
 # PRD — WIBLY Studio Website
 
 ## Original Problem Statement
-> https://wibly-animations.preview.emergentagent.com/#contact — without changing any functionality of this website, add privacy policy and terms and conditions to it.
+> https://www.wibly.in/#contact — without changing any functionality of this website, add privacy policy and terms and conditions to it.
 
-The user clarified that the original site lives in a separate Emergent project. They chose **Option B**: rebuild the site in this workspace and add the legal pages.
+The user clarified that the original site lives in a separate external project. They chose **Option B**: rebuild the site in this workspace and add the legal pages.
 
 ## Goal
 Faithful recreation of the Wibly Studio website (dark theme, orange/peach accents, Instrument Serif italic display, Inter body) with two new legal pages (Privacy Policy + Terms & Conditions) accessible from the footer of every page.
