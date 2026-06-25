@@ -43,8 +43,16 @@ export default function Navbar() {
         }
       });
 
+      // Check if we are at the top of the page (Hero section)
+      if (window.scrollY < 300) {
+        setActive("");
+        return;
+      }
+
       if (mostVisible) {
         setActive(mostVisible);
+      } else {
+        setActive("");
       }
     };
 
