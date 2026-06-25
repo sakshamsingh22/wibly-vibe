@@ -48,6 +48,14 @@ export default function Article() {
     return headings;
   }, [article]);
 
+  // Calculate TOC translation
+  const activeIndex = toc.findIndex(t => t.id === activeHeading);
+  const itemHeight = 36; 
+  const visibleItemsBeforeScroll = 4;
+  const translateY = activeIndex > visibleItemsBeforeScroll 
+    ? (activeIndex - visibleItemsBeforeScroll) * itemHeight 
+    : 0;
+
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -80,13 +88,10 @@ export default function Article() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Calculate scroll percentage
       const totalScroll = document.documentElement.scrollTop;
       const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       const scroll = Math.round((totalScroll / windowHeight) * 100);
       setScrollPercent(scroll);
-
-      // Back to top visibility
       setShowBackToTop(totalScroll > 800);
     };
 
@@ -198,7 +203,7 @@ export default function Article() {
           
           {/* Sticky TOC (Left Sidebar) */}
           {toc.length > 0 && (
-            <aside className="hidden lg:block w-[300px] shrink-0 sticky top-[110px] self-start max-h-[calc(100vh-140px)] overflow-y-auto custom-scrollbar pr-4">
+            <aside className="hidden lg:block w-[300px] shrink-0 sticky top-[110px] self-start">
               <div className="flex flex-col gap-8">
                 
                 {/* Reading Status */}
@@ -225,15 +230,19 @@ export default function Article() {
                 {/* Table of Contents List */}
                 <div>
                   <h3 className="text-[10px] font-bold uppercase tracking-widest text-[var(--text-dim)] mb-6">Table of Contents</h3>
-                  <nav className="flex flex-col relative">
-                    {/* Animated indicator line */}
-                    <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-[var(--border)] rounded-full" />
+                  <nav className="flex flex-col relative h-[300px] overflow-hidden">
+                    {/* Background line */}
+                    <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-[var(--border)] rounded-full z-0" />
                     
-                    <ul className="space-y-3 relative z-10">
-                      {toc.map(item => {
+                    <motion.ul 
+                      animate={{ y: -translateY }}
+                      transition={{ type: "spring", stiffness: 200, damping: 25 }}
+                      className="relative z-10 w-full"
+                    >
+                      {toc.map((item, index) => {
                         const isActive = activeHeading === item.id;
                         return (
-                          <li key={item.id} className="relative">
+                          <li key={item.id} className="relative h-[36px] flex flex-col justify-center">
                             {isActive && (
                               <motion.div 
                                 layoutId="activeIndicator"
@@ -244,7 +253,7 @@ export default function Article() {
                             <a 
                               href={`#${item.id}`} 
                               onClick={(e) => handleScrollTo(e, item.id)}
-                              className={`block pl-5 text-sm transition-all duration-200 leading-snug py-1 ${
+                              className={`block pl-5 text-sm transition-all duration-200 leading-snug truncate ${
                                 isActive 
                                   ? "text-white font-medium" 
                                   : "text-[var(--text-muted)] hover:text-white"
@@ -255,7 +264,7 @@ export default function Article() {
                           </li>
                         );
                       })}
-                    </ul>
+                    </motion.ul>
                   </nav>
                 </div>
               </div>
