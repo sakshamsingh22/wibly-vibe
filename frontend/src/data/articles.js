@@ -324,20 +324,7 @@ export const ARTICLES = [
 <p>You don't need to fight corporations on their turf. You just need to dominate your own backyard. By optimizing your GBP, maintaining perfect NAP consistency, generating steady reviews, and proving your local relevance, you can capture high-intent local traffic that corporate giants could never dream of converting.</p>
 `
   },
-  {
-    slug: "why-we-use-react-and-framer-motion",
-    title: "Why We Use React & Framer Motion Instead of WordPress",
-    seoTitle: "React vs WordPress: Why We Build Custom Web Apps | WIBLY",
-    metaDescription: "Discover why WIBLY abandons traditional WordPress builds in favor of custom React and Framer Motion applications for ultimate performance.",
-    keywords: ["react", "framer motion", "wordpress alternative", "custom web design"],
-    excerpt: "WordPress powers much of the web, but it comes with severe performance bottlenecks. Here is why we engineer custom websites using React and Framer Motion for our clients.",
-    category: "Development",
-    readingTime: "6 min read",
-    publishDate: "2026-06-15",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1470&auto=format&fit=crop",
-    authorId: "saksham",
-    content: "<p>Full article coming soon...</p>"
-  },
+
   {
     slug: "the-psychology-of-premium-web-design",
     title: "The Psychology of Premium Web Design",
