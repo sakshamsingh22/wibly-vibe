@@ -28,7 +28,7 @@ export default function Footer() {
         <div className="mt-10 pt-6 border-t border-[var(--border)] flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-[var(--text-muted)]">
           <div data-testid="footer-copyright">© 2026 WIBLY Studio. All rights reserved.</div>
           <div className="flex items-center gap-5">
-            <a href="https://www.instagram.com/wibly.in/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--text)] transition flex items-center gap-1.5" aria-label="Instagram">
+            <a href="https://www.instagram.com/wibly.dev/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--text)] transition flex items-center gap-1.5" aria-label="Instagram">
               <Instagram size={15} /> <span className="hidden sm:inline">Instagram</span>
             </a>
             <a href="https://www.linkedin.com/company/wibly-in/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--text)] transition flex items-center gap-1.5" aria-label="LinkedIn">
